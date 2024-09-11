@@ -1,0 +1,121 @@
+.navbar{
+    background: #1B3F95;
+    height: 6rem;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo{
+    height: 15rem;
+    width: auto;
+}
+.desktopMenu{
+    margin-right: 200px;
+}
+.desktopMenuItemList, .mobileMenuItem {
+    color: white;
+    font-size: large;
+    font-weight: 500;
+    text-decoration: none;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+}
+
+.desktopMenuItemList:hover, .mobileMenuItem:hover {
+    color: yellow;
+
+}
+
+.logoutBtn{
+    margin-right: -500px;
+}
+
+.desktopMenuBtn {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    font-weight: 500;
+    border: none;
+    padding: 0 0.5rem;
+    border-radius: 2rem;
+    background: transparent;
+    color:rgb(55,53,106);
+    
+}
+
+.desktopMenuIcon {
+    height: 1.7rem;
+    width: 1rem;
+    margin-right: 0.5rem;
+}
+
+.navMenu{
+    position: absolute;
+    top: 4rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    height: fit-content;
+    min-width: 15rem;
+    background: rgb(55,53,106);
+    border-radius: 20px;
+    z-index: 100;
+
+}
+
+.mobMenu{
+    height: 1.5rem;
+    width: 1.5rem;
+    color: aliceblue;
+}
+
+.logout{
+    color: white;
+    font-size: large;
+    font-weight: 500;
+    text-decoration: none;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+}
+.logoutIcon{
+    color: white;
+    height: 10vh;
+    width: 3vh;
+  
+}
+
+@media screen and (max-width: 771px) and (min-width: 350px){
+    .logo{
+        display: flex;
+        width: auto;
+        height: 100px;
+    }
+    .mobMenu {
+        display: flex;
+        margin-left: -100px ;
+    }
+    .desktopMenu {
+        display: none;
+    }
+    .navMenu{
+        display: flex;
+        margin-left: 100px;
+    }
+    .navMenuMob{
+        margin-left: 250px;
+        z-index: 100;
+    }
+    .logoutBtn{
+        display: flex;
+        margin-left:5px;
+        margin-top: 1px;
+    }
+    
+}
