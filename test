@@ -1,0 +1,144 @@
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import * as React from "react";
+import { useState } from "react";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+
+import backgroundImage from '../../assets/images/reg 9.png';
+import backgroundImageMobile from '../../assets/images/LoginMD.png';
+
+
+
+export default function Signout() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    if (username === "Admin" && password === "Admin@123") {
+
+      const MyToken = 'dtscustomtokenforlogin';
+      localStorage.setItem('token', MyToken);
+      navigate("/attendenceLog");
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Error...",
+        text: "Your username or password is incorrect.",
+      });
+    }
+  };
+
+  return (
+    <Grid container spacing={1}>
+      <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+      <Box
+  sx={{
+    backgroundImage: `url("${backgroundImage}")`,
+    backgroundSize: "cover",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100vh",
+    "@media (max-width: 600px)": {
+      backgroundImage: `url("${backgroundImageMobile}")`,
+    },
+  }}
+>
+<Box
+            component="form"
+            padding={{ xs: 2, sm: 4, lg: 12, xl: 12 }}
+            paddingTop={{ xs: 4, sm: 4, lg: 8, xl: 12 }}
+            paddingBottom={{ xs: 4, sm: 4, lg: 8, xl: 12 }}
+            sx={{
+              width: "100%",
+              maxWidth: "300px",
+              backgroundColor: "rgba(255, 255, 255, 0.8)",
+              boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.6)",
+              borderRadius: "10px",
+              alignItems: "center",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              marginLeft: "300px",
+            }}
+          >
+          <Box
+            component="form"
+            padding={{ xs: 2, sm: 4, lg: 12, xl: 12 }}
+            paddingTop={{ xs: 4, sm: 4, lg: 8, xl: 12 }}
+            paddingBottom={{ xs: 4, sm: 4, lg: 8, xl: 12 }}
+            sx={{
+              width: "100%",
+              maxWidth: "300px",
+              backgroundColor: "rgba(255, 255, 255, 0.8)",
+              boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.6)",
+              borderRadius: "10px",
+              alignItems: "center",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              marginLeft: "300px",
+            }}
+          >
+            <Typography
+              component="h1"
+              variant="h4"
+              padding={1}
+              fontFamily={"sans-serif"}
+              fontSize={24}
+              sx={{
+                fontWeight: "bold",
+                borderBottom: "2px solid",
+                marginBottom: 1,
+              }}
+            >
+              Log In
+            </Typography>
+            <TextField
+              required
+              fullWidth
+              label="Username"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              sx={{ margin: "8px", fontFamily: "Times New Roman" }}
+              variant="standard"
+            />
+            <TextField
+              required
+              fullWidth
+              label="Password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              sx={{ margin: "8px", fontFamily: "Times New Roman" }}
+              variant="standard"
+            />
+            <Button
+              fullWidth
+              variant="contained"
+              onClick={handleSubmit}
+              size="small"
+              sx={{
+                padding: "10px",
+                borderRadius: "10px",
+                marginTop: "8px",
+                fontWeight: "bold",
+              }}
+              autoFocus
+            >
+              Login
+            </Button>
+          </Box>
+        </Box>
+      </Grid>
+    </Grid>
+  );
+}
