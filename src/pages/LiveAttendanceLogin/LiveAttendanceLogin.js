@@ -29,7 +29,14 @@ export default function Signout(props) {
       const MyToken = "dtscustomtokenforlogin";
       localStorage.setItem("token", MyToken);
       navigate("../GardView");
-    } else {
+    } 
+    else if
+    (username === "Admin2" && password === "Admin@123") {
+      const MyToken = "dtscustomtokenforlogin";
+      localStorage.setItem("token", MyToken);
+      navigate("../AttendentCard");
+    } 
+    else {
       Swal.fire({
         icon: "error",
         title: "Error...",
